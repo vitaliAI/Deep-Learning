@@ -7,6 +7,10 @@
 //
 
 #include "NeuralNetwork.hpp"
+#include <iostream>
+
+
+using namespace std;
 
 Net::Net(const vector<double> topology)
 {
@@ -22,6 +26,17 @@ Net::Net(const vector<double> topology)
         for(unsigned neuronNum = 0; neuronNum <= topology[layerNum]; ++neuronNum)
         {
             this->n_layers.back().push_back(Neuron());
+#ifdef DEBUG_LOG
+            if(neuronNum != topology[layerNum])
+            {
+                cout << "Created a Neuron in Layer " << layerNum + 1 << endl;
+            }
+            else
+            {
+                cout << "Created Bias Neuron in Layer " << layerNum + 1 << endl;
+            }
+#endif
+            
         }
     }
 }

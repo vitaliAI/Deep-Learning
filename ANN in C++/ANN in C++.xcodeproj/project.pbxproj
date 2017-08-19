@@ -28,6 +28,7 @@
 		E93854191F48769D00186E5E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		E990F8721F48A30F00A7AF74 /* NeuralNetwork.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NeuralNetwork.cpp; sourceTree = "<group>"; };
 		E990F8731F48A30F00A7AF74 /* NeuralNetwork.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = NeuralNetwork.hpp; sourceTree = "<group>"; };
+		E990F8751F48CC7F00A7AF74 /* Config.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Config.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +64,7 @@
 				E93854191F48769D00186E5E /* main.cpp */,
 				E990F8721F48A30F00A7AF74 /* NeuralNetwork.cpp */,
 				E990F8731F48A30F00A7AF74 /* NeuralNetwork.hpp */,
+				E990F8751F48CC7F00A7AF74 /* Config.hpp */,
 			);
 			path = "ANN in C++";
 			sourceTree = "<group>";

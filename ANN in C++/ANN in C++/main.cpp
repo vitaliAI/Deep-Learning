@@ -7,9 +7,26 @@
 //
 
 #include <iostream>
+#include <vector>
+#include "NeuralNetwork.hpp"
+
+using namespace std;
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    
+    
+    // Topology is Architecture of Artificial Neural Network
+    vector<double> topology;
+    Net myANNetwork(topology);
+    // Feedforward Method
+    vector<double> inputValues;
+    myANNetwork.feedForward(inputValues);
+    // Backpropagation to optimise Parameters/Weights
+    vector<double> targetValues;
+    myANNetwork.backPropagation(targetValues);
+    // Getting Output Values from Input Values
+    vector<double>outputValues;
+    myANNetwork.getResults(outputValues);
+    
     return 0;
 }

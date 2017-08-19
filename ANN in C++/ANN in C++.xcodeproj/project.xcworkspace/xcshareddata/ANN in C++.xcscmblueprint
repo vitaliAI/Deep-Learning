@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "1CC769A0D1F5E33F3973FC2378187F04B211B9B3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "1CC769A0D1F5E33F3973FC2378187F04B211B9B3" : 9223372036854775807,
+    "6DBE1C461237B47EEDAF55E8236BCD98097C608C" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9BB2E65B-50E5-49B4-81ED-D672F5808448",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "1CC769A0D1F5E33F3973FC2378187F04B211B9B3" : "Machine%20Learning\/",
+    "6DBE1C461237B47EEDAF55E8236BCD98097C608C" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ANN in C++",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ANN in C++\/ANN in C++.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/vitaliAI\/Deep-Learning.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1CC769A0D1F5E33F3973FC2378187F04B211B9B3"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/vitaliAI\/Machine-Learning.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6DBE1C461237B47EEDAF55E8236BCD98097C608C"
+    }
+  ]
+}

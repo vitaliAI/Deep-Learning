@@ -16,6 +16,8 @@ int main(int argc, const char * argv[]) {
     
     
     // Topology is Architecture of Artificial Neural Network
+    // e.g. {3,2,1}
+    // 3 input values + one Bias Neuron, 2 hidden neurons + one Bias  Neuron, 1 output value
     vector<double> topology;
     Net myANNetwork(topology);
     // Feedforward Method

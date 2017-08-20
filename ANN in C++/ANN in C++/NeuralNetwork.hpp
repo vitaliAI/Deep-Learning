@@ -22,6 +22,12 @@ class Neuron;
 
 typedef vector<Neuron> Layer;
 
+struct Connections
+{
+    double weight;
+    double deltaWeight;
+};
+
 class Net
 {
 public:
@@ -38,7 +44,13 @@ private:
 
 class Neuron
 {
-
+public:
+    Neuron(unsigned numOutputs);
+    
+private:
+    static double randomWeight(void);
+    double n_outputValue;
+    vector<Connections> n_outputWeights;
 };
 
 #endif /* NeuralNetwork_hpp */

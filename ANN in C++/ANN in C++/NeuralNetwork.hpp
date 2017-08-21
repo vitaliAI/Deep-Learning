@@ -51,6 +51,8 @@ public:
     void feedForward(const Layer &prevLayer);
     
 private:
+    static double activationFunction(double);
+    static double activationFunctionDerivative(double);
     static double randomWeight(void);
     double n_outputValue;
     vector<Connections> n_outputWeights;

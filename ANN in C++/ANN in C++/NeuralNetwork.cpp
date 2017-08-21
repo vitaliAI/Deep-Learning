@@ -10,6 +10,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <cassert>
+#include <cmath>
 
 
 using namespace std;
@@ -119,7 +120,19 @@ void Neuron::feedForward(const Layer &prevLayer)
         prevLayer[n].n_outputWeights[n_myIndex].weight;
         
     }
+    n_outputValue = activationFunction(sum);
 }
 
+double Neuron::activationFunction(double sum)
+{
+    // tanh - Hyberbolic tangent Function  -1 ... 1
+    return tanh(sum);
+}
+
+double Neuron::activationFunctionDerivative(double x)
+{
+    // tanh derivative approximation
+    return 1.0 - x * x;
+}
 
 // --------------- End Neuron ------------------

@@ -35,11 +35,15 @@ public:
     Net(const vector<double> topology);
     // Read only the input values
     void feedForward(const vector<double> &inputValues);
-    void backPropagation(const vector<double> &targetValues){}
-    void getResults(vector<double> outputValues)const{}
+    void backPropagation(const vector<double> &targetValues);
+    void getResults(vector<double> &outputValues)const;
 private:
     // n_layers[layerNumber][neuronNumber]
     vector<Layer> n_layers;
+    double error;
+    double recentAverageError;
+    double recentAverageSmoothingFactor;
+    
 };
 
 class Neuron
@@ -49,14 +53,21 @@ public:
     void setOutputValue(double outputValues) { n_outputValue = outputValues; }
     double getOutputValue(void) const { return n_outputValue; }
     void feedForward(const Layer &prevLayer);
+    void calculateOutputGradients(double targetVal);
+    void calculateHiddenGradients(const Layer &nextLayer);
+    void updateInputWeights(Layer &prevLayer);
     
 private:
+    static double eta;
+    static double alpha;
     static double activationFunction(double);
     static double activationFunctionDerivative(double);
     static double randomWeight(void);
+    double sumDOW(const Layer &nextLayer) const;
     double n_outputValue;
     vector<Connections> n_outputWeights;
     unsigned n_myIndex;
+    double gradient;
 };
 
 #endif /* NeuralNetwork_hpp */

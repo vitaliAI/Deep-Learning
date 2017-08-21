@@ -79,6 +79,72 @@ void Net::feedForward(const vector<double> &inputValues)
     }
 }
 
+void Net::backPropagation(const vector<double> &targetValues)
+{
+    // Calculate overall net error - RMS (Root Mean Square) of output neuron errors
+    
+    Layer &outputLayer = n_layers.back();
+    error = 0.0;
+    
+    for(unsigned n = 0; n < outputLayer.size() - 1; ++n)
+    {
+        double delta = targetValues[n] - outputLayer[n].getOutputValue();
+        error += delta * delta;
+    }
+    
+    // RMS - get average error squared
+    error /= outputLayer.size() - 1;
+    error = sqrt(error);
+    
+    
+    recentAverageError = (recentAverageError * recentAverageSmoothingFactor +
+                          error) / (recentAverageSmoothingFactor + 1.0);
+    
+    // Calculate output layer gradients
+    
+    for(unsigned n = 0; n < outputLayer.size() -1; ++n)
+    {
+        outputLayer[n].calculateOutputGradients(targetValues[n]);
+    }
+    
+    // Calculate gradients on hidden layers
+    for(unsigned layerNum = static_cast<unsigned>(n_layers.size()) - 2; layerNum > 0; --layerNum)
+    {
+        Layer &hiddenLayer = n_layers[layerNum];
+        Layer &nextLayer = n_layers[layerNum + 1];
+        
+        for(unsigned n = 0; n < hiddenLayer.size(); ++n)
+        {
+            hiddenLayer[n].calculateHiddenGradients(nextLayer);
+        }
+    }
+    
+    
+    // For all layers from outputs to first hidden layer,
+    // update conncetion weights
+    for(unsigned layerNum = static_cast<unsigned>(n_layers.size()) - 1; layerNum > 0; --layerNum)
+    {
+        Layer &layer = n_layers[layerNum];
+        Layer &prevLayer = n_layers[layerNum - 1];
+        
+        for(unsigned n = 0; n < layer.size() - 1; ++n)
+        {
+            layer[n].updateInputWeights(prevLayer);
+        }
+    
+    }
+}
+
+void Net::getResults(vector<double> &outputValues)const
+{
+    outputValues.clear();
+    
+    for(unsigned n = 0; n < n_layers.back().size() - 1; ++n)
+    {
+        outputValues.push_back(n_layers.back()[n].getOutputValue());
+    }
+}
+
 // --------------- End Neural Network ------------------
 
 
@@ -133,6 +199,56 @@ double Neuron::activationFunctionDerivative(double x)
 {
     // tanh derivative approximation
     return 1.0 - x * x;
+}
+
+
+void Neuron::calculateOutputGradients(double targetVal)
+{
+    double delta = targetVal - n_outputValue;
+    gradient = delta * activationFunction(n_outputValue);
+}
+
+void Neuron::calculateHiddenGradients(const Layer &nextLayer)
+{
+    double dow = sumDOW(nextLayer);
+    gradient = dow * activationFunctionDerivative(n_outputValue);
+}
+
+double Neuron::sumDOW(const Layer &nextLayer) const
+{
+    double sum = 0.0;
+    // Sum our contributions of the errors at the nodes we feed
+    for(unsigned n = 0; n < nextLayer.size() - 1; ++n)
+    {
+        sum += n_outputWeights[n].weight * nextLayer[n].gradient;
+    }
+    
+    return sum;
+}
+
+double Neuron::eta = 0.15;
+double Neuron::alpha = 0.5;
+
+void Neuron::updateInputWeights(Layer &prevLayer)
+{
+    // The weights to be updated are in the Connection container
+    // in the neurons in the preceding layer
+    for(unsigned n = 0; n < prevLayer.size(); ++n)
+    {
+        Neuron &neuron = prevLayer[n];
+        double oldDeltaWeight = neuron.n_outputWeights[n_myIndex].deltaWeight;
+        
+        double newDeltaWeight =
+        // Individual input magnified by the gradient and train rate
+        eta
+        * neuron.getOutputValue()
+        * gradient
+        * alpha
+        * oldDeltaWeight;
+        
+        neuron.n_outputWeights[n_myIndex].deltaWeight = newDeltaWeight;
+        neuron.n_outputWeights[n_myIndex].weight += newDeltaWeight;
+    }
 }
 
 // --------------- End Neuron ------------------

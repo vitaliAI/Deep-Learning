@@ -34,7 +34,7 @@ public:
     // Constructor - ANN Architecture Initialisation
     Net(const vector<double> topology);
     // Read only the input values
-    void feedForward(const vector<double> &inputValues){}
+    void feedForward(const vector<double> &inputValues);
     void backPropagation(const vector<double> &targetValues){}
     void getResults(vector<double> outputValues)const{}
 private:
@@ -45,12 +45,16 @@ private:
 class Neuron
 {
 public:
-    Neuron(unsigned numOutputs);
+    Neuron(unsigned numOutputs, unsigned myIndex);
+    void setOutputValue(double outputValues) { n_outputValue = outputValues; }
+    double getOutputValue(void) const { return n_outputValue; }
+    void feedForward(const Layer &prevLayer);
     
 private:
     static double randomWeight(void);
     double n_outputValue;
     vector<Connections> n_outputWeights;
+    unsigned n_myIndex;
 };
 
 #endif /* NeuralNetwork_hpp */

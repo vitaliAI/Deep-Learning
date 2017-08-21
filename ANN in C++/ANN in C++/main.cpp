@@ -25,6 +25,9 @@ int main(int argc, const char * argv[]) {
     Net myANNetwork(topology);
     // Feedforward Method
     vector<double> inputValues;
+    inputValues.push_back(2);
+    inputValues.push_back(3);
+    inputValues.push_back(1);
     myANNetwork.feedForward(inputValues);
     // Backpropagation to optimise Parameters/Weights
     vector<double> targetValues;

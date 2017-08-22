@@ -48,6 +48,9 @@ Net::Net(const vector<double> topology)
 #endif
             
         }
+        
+        // Force the Bias Neuron output value to be 1.0
+        n_layers.back().back().setOutputValue(1.0);
     }
 }
 

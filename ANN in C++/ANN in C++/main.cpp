@@ -9,6 +9,7 @@
 #include <iostream>
 #include <vector>
 #include "NeuralNetwork.hpp"
+#include "ReadData.hpp"
 
 using namespace std;
 

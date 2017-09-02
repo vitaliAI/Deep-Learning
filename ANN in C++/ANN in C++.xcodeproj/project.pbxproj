@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E938541A1F48769D00186E5E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E93854191F48769D00186E5E /* main.cpp */; };
 		E990F8741F48A30F00A7AF74 /* NeuralNetwork.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E990F8721F48A30F00A7AF74 /* NeuralNetwork.cpp */; };
+		E990F87E1F5B0BF200A7AF74 /* ReadData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E990F87C1F5B0BF200A7AF74 /* ReadData.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +30,8 @@
 		E990F8721F48A30F00A7AF74 /* NeuralNetwork.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NeuralNetwork.cpp; sourceTree = "<group>"; };
 		E990F8731F48A30F00A7AF74 /* NeuralNetwork.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = NeuralNetwork.hpp; sourceTree = "<group>"; };
 		E990F8751F48CC7F00A7AF74 /* Config.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Config.hpp; sourceTree = "<group>"; };
+		E990F87C1F5B0BF200A7AF74 /* ReadData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ReadData.cpp; sourceTree = "<group>"; };
+		E990F87D1F5B0BF200A7AF74 /* ReadData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ReadData.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +64,8 @@
 		E93854181F48769D00186E5E /* ANN in C++ */ = {
 			isa = PBXGroup;
 			children = (
+				E990F87C1F5B0BF200A7AF74 /* ReadData.cpp */,
+				E990F87D1F5B0BF200A7AF74 /* ReadData.hpp */,
 				E93854191F48769D00186E5E /* main.cpp */,
 				E990F8721F48A30F00A7AF74 /* NeuralNetwork.cpp */,
 				E990F8731F48A30F00A7AF74 /* NeuralNetwork.hpp */,
@@ -126,6 +131,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E990F87E1F5B0BF200A7AF74 /* ReadData.cpp in Sources */,
 				E938541A1F48769D00186E5E /* main.cpp in Sources */,
 				E990F8741F48A30F00A7AF74 /* NeuralNetwork.cpp in Sources */,
 			);

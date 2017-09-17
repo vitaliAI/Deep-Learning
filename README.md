@@ -1,7 +1,7 @@
-## Artificial Neural Networks with C++ from Scratch and ANN with Python using Keras Interface to Tensorflow Library
+# Artificial Neural Networks with C++ from Scratch and ANN with Python using Keras Interface to Tensorflow Library
 
 
-# Training	the	ANN	with	Stochastic	Gradient	Descent
+## Training	the	ANN	with	Stochastic	Gradient	Descent
 
 Step1: 
 
